@@ -30,6 +30,18 @@ internal class FakerRandomAddressGeneratorTest {
         }
 
         @Test
+        fun `defaults 'min' to 0`() {
+            val result = generator.generate(max = 0)
+            assertEquals(0, result.size)
+        }
+
+        @Test
+        fun `defaults 'max' to 10`() {
+            val result = generator.generate(min = 10)
+            assertEquals(10, result.size)
+        }
+
+        @Test
         fun `throws InvalidArgumentException when 'min' is less than 0`() {
             val throwable = assertFails {
                 generator.generate(min = -1)
