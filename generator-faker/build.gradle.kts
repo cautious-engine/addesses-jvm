@@ -10,7 +10,7 @@ plugins {
     kotlin("jvm") version "1.7.0"
 }
 
-group = "com.cautious-engine.generator-impl"
+group = "com.cautious-engine.generator-faker"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
