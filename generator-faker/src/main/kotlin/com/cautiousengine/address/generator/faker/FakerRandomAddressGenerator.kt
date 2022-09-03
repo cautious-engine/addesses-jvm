@@ -1,4 +1,4 @@
-package com.cautiousengine.address.generator.impl
+package com.cautiousengine.address.generator.faker
 
 import com.cautiousengine.address.Address
 import com.cautiousengine.address.RandomAddressGenerator

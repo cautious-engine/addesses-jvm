@@ -1,4 +1,4 @@
-package com.cautiousengine.address.generator.impl
+package com.cautiousengine.address.generator.faker
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
