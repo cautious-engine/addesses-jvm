@@ -33,7 +33,7 @@ internal class AddressesApiTests {
     fun `accepts 'min-results' and 'max-results' query parameters`() = testApplication {
         val client = httpTestClient()
 
-        val response = client.get("/addresses?min-results=8&max-results=8")
+        val response = client.get("/addresses?num-addresses=8")
         val responseBody: AddressesResponse = response.body()
 
         assertEquals(200, response.status.value)
@@ -42,10 +42,10 @@ internal class AddressesApiTests {
     }
 
     @Test
-    fun `throws 422 error for invalid 'min-results' query parameter value`() = testApplication {
+    fun `throws 422 error for invalid 'num-addresses' query parameter value`() = testApplication {
         val client = httpTestClient()
 
-        val response = client.get("/addresses?min-results=zero")
+        val response = client.get("/addresses?num-addresses=zero")
         val responseBody: ErrorResponse = response.body()
 
         println(response.bodyAsText())

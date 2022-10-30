@@ -13,41 +13,35 @@ internal class FakerRandomAddressGeneratorTest {
     inner class Generate {
         @Test
         fun `generates random addresses`() {
-            val result = generator.generate(min = 1)
+            val result = generator.generate(numAddresses = 1)
             assertTrue(result.isNotEmpty())
         }
 
         @Test
         fun `generates exact number of addresses using same min and max`() {
-            val result = generator.generate(min = 3, max = 3)
+            val result = generator.generate(numAddresses = 3)
             assertEquals(3, result.size)
         }
 
         @Test
         fun `supports returning empty list`() {
-            val result = generator.generate(min = 0, max = 0)
+            val result = generator.generate(numAddresses = 0)
             assertTrue(result.isEmpty())
         }
 
         @Test
-        fun `defaults 'min' to 0`() {
-            val result = generator.generate(max = 0)
-            assertEquals(0, result.size)
+        fun `defaults 'numAddresses' to 5`() {
+            val result = generator.generate(numAddresses = 5)
+            assertEquals(5, result.size)
         }
 
         @Test
-        fun `defaults 'max' to 10`() {
-            val result = generator.generate(min = 10)
-            assertEquals(10, result.size)
-        }
-
-        @Test
-        fun `throws InvalidArgumentException when 'min' is less than 0`() {
+        fun `throws InvalidArgumentException when 'numAddresses' is less than 0`() {
             val throwable = assertFails {
-                generator.generate(min = -1)
+                generator.generate(numAddresses = -1)
             }
 
-            assertEquals("'min' must be >= 0", throwable.message)
+            assertEquals("'numAddresses' must be >= 0", throwable.message)
         }
     }
 }
