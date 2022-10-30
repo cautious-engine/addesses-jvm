@@ -3,19 +3,15 @@ package com.cautiousengine.address.generator.faker
 import com.cautiousengine.address.Address
 import com.cautiousengine.address.RandomAddressGenerator
 import com.github.javafaker.Faker
-import kotlin.random.Random
-import kotlin.random.nextInt
 
 class FakerRandomAddressGenerator : RandomAddressGenerator {
     private val faker = Faker()
 
-    override fun generate(min: Int, max: Int): List<Address> {
-        require(min >= 0) { "'min' must be >= 0" }
-
-        val numResults = Random.nextInt(min..max)
+    override fun generate(numAddresses: Int): List<Address> {
+        require(numAddresses >= 0) { "'numAddresses' must be >= 0" }
 
         val addresses = mutableListOf<Address>()
-        repeat(numResults) {
+        repeat(numAddresses) {
             addresses.add(generateAddress())
         }
 
