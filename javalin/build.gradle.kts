@@ -5,8 +5,7 @@ plugins {
 }
 
 application {
-    // The shadowjar plugin requires use of the deprecated `mainClassName`.
-    mainClassName = "com.envylabs.cautiousengine.javalin.AppKt"
+    mainClassName = "com.envylabs.cautiousengine.javalin.MainKt"
 }
 
 repositories {
